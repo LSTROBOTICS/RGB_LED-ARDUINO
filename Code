@@ -1,0 +1,65 @@
+
+const int redPin = 11;   
+const int greenPin = 10; 
+const int bluePin = 9; 
+
+void setup() {
+
+  pinMode(redPin, OUTPUT);
+  pinMode(greenPin, OUTPUT);
+  pinMode(bluePin, OUTPUT);
+}
+
+void loop() {
+
+  for (int red = 0; red <= 255; red++) {
+    analogWrite(redPin, red);
+    delay(10);
+  }
+
+  for (int green = 0; green <= 255; green++) {
+    analogWrite(greenPin, green);
+    delay(10);
+  }
+
+  for (int blue = 0; blue <= 255; blue++) {
+    analogWrite(bluePin, blue);
+    delay(10);
+  }
+
+ 
+  for (int mix = 0; mix <= 255; mix++) {
+    analogWrite(redPin, 255 - mix);  
+    analogWrite(greenPin, mix);      
+    delay(10);
+  }
+
+  for (int mix = 0; mix <= 255; mix++) {
+    analogWrite(greenPin, 255 - mix); 
+    analogWrite(bluePin, mix);       
+    delay(10);
+  }
+
+  for (int mix = 0; mix <= 255; mix++) {
+    analogWrite(bluePin, 255 - mix); 
+    analogWrite(redPin, mix);       
+    delay(10);
+  }
+
+  
+  for (int intensity = 0; intensity <= 255; intensity++)
+   {
+    analogWrite(redPin, intensity);
+    analogWrite(greenPin, intensity);
+    analogWrite(bluePin, intensity);
+    delay(10);
+  }
+
+  
+  for (int intensity = 255; intensity >= 0; intensity--) 
+  {
+    analogWrite(redPin, intensity);
+    analogWrite(greenPin, intensity);
+    analogWrite(bluePin, intensity);
+    delay(10);
+  }
